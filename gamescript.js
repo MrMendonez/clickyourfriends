@@ -32,6 +32,7 @@ function timedout(){
 
 
     document.getElementById("startbutton").style.visibility="visible";
+    document.getElementById("startbutton").value = "visible";
 }
 
 function imageClickResolver(){
