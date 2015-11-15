@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1390d48d-6f3b-4729-bc1a-6df1b41a0d60" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/index" afterPath="$PROJECT_DIR$/index,php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="1390d48d-6f3b-4729-bc1a-6df1b41a0d60" name="Default" comment="" />
     <ignored path="clickyourfriends.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
