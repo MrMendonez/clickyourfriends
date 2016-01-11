@@ -1,55 +1,57 @@
 /**
  * Created by alemjc on 11/15/15.
  */
-var imagesClicked = 0;
+$(document).ready(function(){
+    var imagesClicked = 0;
 
 
 
-var imgs = document.getElementsByTagName("img");
-document.getElementById("startbutton").addEventListener("click", startGame);
-for(var i = 0; i < imgs.length; i++){
-    var image = imgs[i];
-    image.addEventListener("click",imageClickResolver);
+    var imgs = document.getElementsByTagName("img");
+    $("#startbutton").on("click", startGame);
+    for(var i = 0; i < imgs.length; i++){
+        var image = imgs[i];
+        image.addEventListener("click",imageClickResolver);
 
-}
-
-
-function startGame(){
-    document.getElementById("startbutton").style.visibility="hidden";
-    document.getElementById("startbutton").value = "hidden";
-    setTimeout(timedout,20000);
-}
-
-function timedout(){
-    //TODO: reset what ever structure and tell user the number of images that were clicked.
-    var images = document.getElementsByTagName("img");
-    for (var i = 0; i < images.length; i++){
-        images[i].setAttribute("about","not clicked");
     }
 
-    alert("Time is up!!! \n number of images clicked = "+imagesClicked);
-    imagesClicked = 0;
 
-
-    document.getElementById("startbutton").style.visibility="visible";
-    document.getElementById("startbutton").value = "visible";
-}
-
-function imageClickResolver(){
-
-    if(document.getElementById("startbutton").value === "visible"){
-        return;
+    function startGame(){
+        document.getElementById("startbutton").style.visibility="hidden";
+        $("#startbutton").value = "hidden";
+        setTimeout(timedOut,20000);
     }
 
-    var img = event.target;
+    function timedOut(){
+        var images = document.getElementsByTagName("img");
+        for (var i = 0; i < images.length; i++){
+            images[i].setAttribute("about","not-clicked");
+        }
 
-    var about = img.getAttribute("about");
+        $("#results").html("Number of imaged clicked = " + imagesClicked);
+        $('#results-modal').modal();
+        imagesClicked = 0;
 
-    console.log("in imageClickResolver and about is: "+about);
 
-    if(about !== "clicked"){
-        imagesClicked++;
-        img.setAttribute("about","clicked");
+        document.getElementById("startbutton").style.visibility="visible";
+        $("#startbutton").value = "visible";
     }
-}
 
+    function imageClickResolver(){
+
+        if($("#startbutton").value === "visible"){
+            return;
+        }
+
+        var img = event.target;
+
+        var about = img.getAttribute("about");
+
+        if(about !== "clicked"){
+            imagesClicked++;
+            img.setAttribute("about","clicked");
+        }
+    }
+    $("#verified-btn").on("click", function() {
+        $('#verified-modal').modal();
+    });
+});
